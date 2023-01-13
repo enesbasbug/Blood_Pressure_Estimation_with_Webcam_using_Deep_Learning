@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.css" />
+    <title>MSc Project</title>
+    <style>
+        .swal2-html-container{
+            overflow-x: hidden !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+        <div class="container">
+            <a href="#" class="navbar-brand">Blood Pressure Estimation</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="#learn" class="nav-link">How does it work?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#questions" class="nav-link">Questions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#physicians" class="nav-link">Our Physicians</a>
+                    </li>
+                    <!-- <li class="nav-item"><a class="btn btn-danger" onclick="deneme()">deneme</a></li> -->
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <!-- Showcase -->
+    <section class="bg-dark text-light p-5 p-lg-0 pt-lg-5 text-center text-sm-start">
+        <div class="container">
+            <div class="d-sm-flex align-items-center justify-content-between">
+                <div>
+                    <h2>Lets predict your <span class="text-danger">Blood Pressure</span> </h2>
+
+                    <p class="lead">
+                        <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Voluptates, tempore! Officia earum architecto harum incidunt tempora id perferendis.
+                        Laudantium dolore aliquid, animi quam nobis id repellendus sapiente. Voluptatibus, ea illo? -->
+                        If you have normal blood pressure, your blood pressure is less than 120/80.
+                        Stick with an active lifestyle and healthy diet to keep that going.
+                        <br>
+                        <br>
+                        Is your blood pressure above the normal range, in either or both systolic
+                        and diastolic levels? Your doctor will want to have more than one blood pressure reading before
+                        diagnosing hypertension.
+                    </p>
+                    <button id="startvideo" class="btn btn-danger btn-lg">Let's predict
+                        your BP</button>
+                    <!-- <button class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#enroll" >Captureee</button> -->
+                </div>
+                <img class="img-fluid w-50 d-none d-sm-block" src="img/doctor_1.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-danger text-light p-5">
+        <div class="container">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3 class="mb-3 mb-md-0">Sign Up for Our Newsletter</h3>
+
+                <div class="input-group news-input">
+                    <input type="text" class="form-control" placeholder="Enter Email">
+                    <!-- <input type="text" class="form-control" placeholder="Enter Email" aria-label="Recipient's username" aria-describedby="button-addon2"> -->
+                    <!-- <button class="btn btn-dark btn-lg" type="button" id="button-addon2">Button</button> -->
+                    <button class="btn btn-dark btn-lg" type="button">Sign Up</button>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Boxes -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <!-- <i class="bi bi-laptop"></i> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                    class="bi bi-heart-pulse" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053.918 3.995.78 5.323 1.508 7H.43c-2.128-5.697 4.165-8.83 7.394-5.857.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17c3.23-2.974 9.522.159 7.394 5.856h-1.078c.728-1.677.59-3.005.108-3.947C13.486.878 10.4.28 8.717 2.01L8 2.748ZM2.212 10h1.315C4.593 11.183 6.05 12.458 8 13.795c1.949-1.337 3.407-2.612 4.473-3.795h1.315c-1.265 1.566-3.14 3.25-5.788 5-2.648-1.75-4.523-3.434-5.788-5Zm8.252-6.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.5a.5.5 0 0 0 0 1H4a.5.5 0 0 0 .416-.223l1.473-2.209 1.647 4.118a.5.5 0 0 0 .945-.049l1.598-5.593 1.457 3.642A.5.5 0 0 0 12 9h3.5a.5.5 0 0 0 0-1h-3.162l-1.874-4.686Z" />
+                                </svg>
+                            </div>
+                            <h3 class="card-title mb-3">High Blood Pressure</h3>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora delectus assumenda
+                                soluta facilis, atque ad!
+                            </p>
+                            <a href="#" class="btn btn-light">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <!-- <i class="bi bi-person-square"></i> -->
+
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                    class="bi bi-clipboard2-pulse" viewBox="0 0 16 16">
+                                    <path
+                                        d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" />
+                                    <path
+                                        d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" />
+                                    <path
+                                        d="M9.979 5.356a.5.5 0 0 0-.968.04L7.92 10.49l-.94-3.135a.5.5 0 0 0-.926-.08L4.69 10H4.5a.5.5 0 0 0 0 1H5a.5.5 0 0 0 .447-.276l.936-1.873 1.138 3.793a.5.5 0 0 0 .968-.04L9.58 7.51l.94 3.135A.5.5 0 0 0 11 11h.5a.5.5 0 0 0 0-1h-.128L9.979 5.356Z" />
+                                </svg>
+                            </div>
+                            <h3 class="card-title mb-3">Heart Rate</h3>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora delectus assumenda
+                                soluta facilis, atque ad!
+                            </p>
+                            <a href="#" class="btn btn-light">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <!-- <i class="bi bi-people"></i> -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                                    class="bi bi-heart-pulse-fill" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1.475 9C2.702 10.84 4.779 12.871 8 15c3.221-2.129 5.298-4.16 6.525-6H12a.5.5 0 0 1-.464-.314l-1.457-3.642-1.598 5.593a.5.5 0 0 1-.945.049L5.889 6.568l-1.473 2.21A.5.5 0 0 1 4 9H1.475ZM.879 8C-2.426 1.68 4.41-2 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C11.59-2 18.426 1.68 15.12 8h-2.783l-1.874-4.686a.5.5 0 0 0-.945.049L7.921 8.956 6.464 5.314a.5.5 0 0 0-.88-.091L3.732 8H.88Z" />
+                                </svg>
+                            </div>
+                            <h3 class="card-title mb-3">PPG Data</h3>
+                            <p class="card-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora delectus assumenda
+                                soluta facilis, atque ad!
+                            </p>
+                            <a href="#" class="btn btn-light">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn Sections -->
+    <section id="learn" class="p-5">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-md">
+                    <img src="img/med.svg" class="img-fluid" alt="">
+                </div>
+                <div class="col-md p-5">
+                    <h2>How does it work?</h2>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia earum veniam possimus
+                        inventore ratione nulla.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis expedita nam a sit sapiente est
+                        facilis, voluptatem nobis. Eaque dolores sapiente cupiditate assumenda. Laboriosam, quod.
+                    </p>
+                    <a href="#" class="btn btn-light mt-3">
+                        <i class="bi bi-chevron-right">Read More</i>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Learn Sections -- 2 -->
+    <section id="learn" class="p-5 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+
+                <div class="col-md p-5">
+                    <h2>What kind of technologies has been used?</h2>
+                    <p class="lead">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia earum veniam possimus
+                        inventore ratione nulla.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis expedita nam a sit sapiente est
+                        facilis, voluptatem nobis. Eaque dolores sapiente cupiditate assumenda. Laboriosam, quod.
+                    </p>
+                    <a href="#" class="btn btn-light mt-3">
+                        <i class="bi bi-chevron-right">Read More</i>
+                    </a>
+                </div>
+                <div class="col-md">
+                    <img src="img/doctors_1.svg" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Question Accordion  -->
+    <div id="questions" class="p-5">
+        <div class="container">
+
+            <!-- <img src="img/quest.svg" class="img-fluid quest h-50 d-none d-sm-block" alt=""> -->
+            <!-- <center><img src="img/quest2.svg" class="quest"> </center> -->
+            <div class="col-md  p-5">
+                <center><img src="img/quest2.svg" class="img-fluid quest"> </center>
+            </div>
+
+            <div class="col-md">
+                <h2>
+                    <text-center class="mb-4">Frequently Asked Questions</text-center>
+                </h2>
+
+                <div class="accordion accordion-flush" id="questions">
+                    <!-- Item 1 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#question-one">
+                                Where exactly are you located?
+                            </button>
+                        </h2>
+                        <div id="question-one" class="accordion-collapse collapse" data-bs-parent="#questions">
+                            <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
+                                eos nam delectus excepturi consequuntur nulla vel quod, dolorum hic ab quis laborum
+                                repellendus voluptatem sapiente atque inventore! Necessitatibus obcaecati dolor
+                                molestiae similique eum quas a deleniti recusandae repellendus ullam! Ex eaque voluptate
+                                temporibus laborum aspernatur unde vel maiores voluptates id.</div>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#question-two">
+                                How much does it cost to attend?
+                            </button>
+                        </h2>
+                        <div id="question-two" class="accordion-collapse collapse" data-bs-parent="#questions">
+                            <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
+                                eos nam delectus excepturi consequuntur nulla vel quod, dolorum hic ab quis laborum
+                                repellendus voluptatem sapiente atque inventore! Necessitatibus obcaecati dolor
+                                molestiae similique eum quas a deleniti recusandae repellendus ullam! Ex eaque voluptate
+                                temporibus laborum aspernatur unde vel maiores voluptates id.</div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#question-three">
+                                What do I need to know beforehand?
+                            </button>
+                        </h2>
+                        <div id="question-three" class="accordion-collapse collapse" data-bs-parent="#questions">
+                            <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
+                                eos nam delectus excepturi consequuntur nulla vel quod, dolorum hic ab quis laborum
+                                repellendus voluptatem sapiente atque inventore! Necessitatibus obcaecati dolor
+                                molestiae similique eum quas a deleniti recusandae repellendus ullam! Ex eaque voluptate
+                                temporibus laborum aspernatur unde vel maiores voluptates id.</div>
+                        </div>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#question-four">
+                                How do I sign up?
+                            </button>
+                        </h2>
+                        <div id="question-four" class="accordion-collapse collapse" data-bs-parent="#questions">
+                            <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
+                                eos nam delectus excepturi consequuntur nulla vel quod, dolorum hic ab quis laborum
+                                repellendus voluptatem sapiente atque inventore! Necessitatibus obcaecati dolor
+                                molestiae similique eum quas a deleniti recusandae repellendus ullam! Ex eaque voluptate
+                                temporibus laborum aspernatur unde vel maiores voluptates id.</div>
+                        </div>
+                    </div>
+                    <!-- Item 5 -->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#question-five">
+                                Will you help me find a job?
+                            </button>
+                        </h2>
+                        <div id="question-five" class="accordion-collapse collapse" data-bs-parent="#questions">
+                            <div class="accordion-body">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
+                                eos nam delectus excepturi consequuntur nulla vel quod, dolorum hic ab quis laborum
+                                repellendus voluptatem sapiente atque inventore! Necessitatibus obcaecati dolor
+                                molestiae similique eum quas a deleniti recusandae repellendus ullam! Ex eaque voluptate
+                                temporibus laborum aspernatur unde vel maiores voluptates id.</div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Physicians -->
+    <section id="physicians" class="p-5 bg-dark">
+        <div class="container">
+            <h2 class="text-center text-white">Our Physicians</h2>
+            <p class="lead text-center text-white mb-5">Our doctors all have 7+ years working experience in the
+                hospitals. </p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/men/9.jpg" class="rounded-circle mb-3" alt="">
+                            <h3 class="card-tittle mb-3">Jhon Doe</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt vitae
+                                omnis rem non animi optio velit, aspernatur rerum, distinctio ducimus tenetur et.
+                                Aliquid quam libero ipsa reiciendis aliquam ad porro.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" class="rounded-circle mb-3"
+                                alt="">
+                            <h3 class="card-tittle mb-3">Jessica Zoe</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt vitae
+                                omnis rem non animi optio velit, aspernatur rerum, distinctio ducimus tenetur et.
+                                Aliquid quam libero ipsa reiciendis aliquam ad porro.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/women/11.jpg" class="rounded-circle mb-3"
+                                alt="">
+                            <h3 class="card-tittle mb-3">Alexandra Pra</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt vitae
+                                omnis rem non animi optio velit, aspernatur rerum, distinctio ducimus tenetur et.
+                                Aliquid quam libero ipsa reiciendis aliquam ad porro.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card bg-light">
+                        <div class="card-body text-center">
+                            <img src="https://randomuser.me/api/portraits/men/13.jpg" class="rounded-circle mb-3"
+                                alt="">
+                            <h3 class="card-tittle mb-3">Adam Smith</h3>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt vitae
+                                omnis rem non animi optio velit, aspernatur rerum, distinctio ducimus tenetur et.
+                                Aliquid quam libero ipsa reiciendis aliquam ad porro.</p>
+                            <a href="#"><i class="bi bi-twitter text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-facebook text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                            <a href="#"><i class="bi bi-instagram text-dark mx-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact and Map -->
+    <section class="p-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md">
+                    <h2 class="text-center mb-4">Contact Info</h2>
+                    <ul class="list-group list-group-flush lead">
+                        <li class="list-group-item">
+                            <span class="fw-bold">Main Location:</span> 50 Main St London LND
+                        </li>
+                        <li class="list-group-item">
+                            <span class="fw-bold">Phone:</span> (555) 555 55 55
+                        </li>
+
+                        <li class="list-group-item">
+                            <span class="fw-bold">Email Adress:</span> email@email.com
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-md">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="p-5 bg-dark text-white text-center position-relative">
+        <div class="container">
+            <p class="lead">Copyright &copy;2022 Remote Blood Pressure - This website is developped and deployed for
+                academic purposes only. Do not rely on anything the website says!</p>
+
+            <a href="#" class="position-absolute bottom-0 end-0 p-5">
+
+                <i class="bi bi-arrow-up-circle h1"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script type="module" src="index.js"></script>
+    <!--enes-->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.js"></script>
+    <script>
+        //enes
+
+        //end
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZmxvd29uZSIsImEiOiJjbDRjcTN1bjMwMHZ3M21tbXB5dzliNjU0In0.HSQiGLYQ5zO8T8CIXgS7pg';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [-0.136439, 51.507359], // starting position [lng, lat]
+            zoom: 11 // starting zoom
+        });
+
+
+        function deneme() {
+            $.ajax({
+                url: "http://127.0.0.1:5000/enes",
+                type:"POST",
+                dataType:"json",
+                // contentType: 'application/json;charset=UTF-8',
+
+                data : {data:"clicked"},      
+                success: function (response) {
+                    console.log(response)
+                }
+            });
+        }
+    </script>
+</body>

@@ -1,0 +1,43 @@
+body::before {
+    display:block;
+    content: '';
+    height: 60px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+@media(min-width: 768px){
+    .news-input {
+        width: 50%;
+    }
+}
+
+.quest {
+  width: 30%;
+}
+
+.column {
+    float: left;
+    }
+
+
+.inner {
+    position: absolute;
+    width: 500px;
+    top: 0;
+    left: 200px; }
+
+.example {
+        text-align: start;
+        border: solid;
+}
+
+.label {
+	display: inline-flex;
+	border: 1px grey solid;
+	padding:5px;
+}

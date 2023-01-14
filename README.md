@@ -1,6 +1,6 @@
-<img src="images/1.png" width="500"/> 
+<img src="images/1.png" width="650"/> 
 
-<img src="images/2.png" width="500"/> 
+<img src="images/2.png" width="650"/> 
 
 
 Folder description:

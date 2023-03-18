@@ -38,4 +38,4 @@ Email: enesbasbugeng@gmail.com
 
 Regards,
 
-Samil Enes Basbug
+Enes

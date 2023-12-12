@@ -12,30 +12,19 @@ Folder description:
 	-- heartbeat.js and index.js : The implementation for extracting rPPG signal
 	-- index.html : The website
 
+To execute this program, please follow these steps:
 
-In order to execute this programme, please follow:
+1- Begin by downloading the dataset from the provided link: [Dataset Link](https://drive.google.com/file/d/19MDJylakwdTKNS55zMpTtZX8PbYWNTkX/view?usp=sharing). Place the downloaded file into the Code folder, ensuring both files are in the same directory. Note that I had to remove the dataset from QM+ due to a 50 MB limitation.
 
-1- Please download the dataset first. Then, put that file into the Code file. They have to be in the same folder.
-   I had to remove it since there was a limitation (max 50 MB) on QM+. The dataset is a 55 MB file.
-   LINK (https://drive.google.com/file/d/19MDJylakwdTKNS55zMpTtZX8PbYWNTkX/view?usp=sharing)
-   
-2- app.py file has to be run before running the index.html file. In terminal, run: python app.py
-   Then, open the given link by clicking. (We are not using this web page to estimate BP)
+2- Run the `app.py` file before launching the `index.html` file. In your terminal, execute the command: `python app.py`. Then, open the generated link by clicking on it. (It's important to mention that this webpage is not used for blood pressure estimation.)
 
-3- I used Visual Studio Code, and in the application, I can run .html files by right-clicking the file and pressing Open with Live Server option. Then, it opens the html file. (Now, you can estimate your BP with this web page by clicking the button that says 'Let's predict your BP'.)
+3- If you're using Visual Studio Code, right-click on the `index.html` file and choose the "Open with Live Server" option. This will open the HTML file, allowing you to estimate your blood pressure by clicking the 'Let's predict your BP' button.
 
-4- While app.py is executed, you are free to use index.html file to measure your BP.
-	4.1- I suggest you, while trying to measure your BP, make sure that you have also opened
-	     Inspects of the browser (mine was Chrome). In the console, in inspect, you can see the
-	     logs saying the website is running and tracking your face properly. 
-	4.2- After around 10 seconds, you can see your predicted BP on the pop-up menu; once 
-             the webcam sees your face stayed remained.
+4- While the `app.py` is running, you can use the `index.html` file to measure your blood pressure.
+   4.1- Ensure that you have the browser's Inspect tool open (preferably in Chrome). In the console of the Inspect tool, you'll see logs indicating that the website is running and successfully tracking your face.
+   4.2- After approximately 10 seconds, your predicted blood pressure will appear in a pop-up menu once the webcam detects your face and remains stable.
 
+If you require any assistance or guidance, feel free to reach out via email at enesbasbugeng@gmail.com.
 
-
-Please let me know if you need any kind of help or guidance.
-Email: enesbasbugeng@gmail.com
-
-Regards,
-
+Best regards,
 Enes
